@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realchar-deployment
+  labels:
+    app: realchar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: realchar
+  template:
+    metadata:
+      labels:
+        app: realchar
+    spec:
+      containers:
+      - name: realchar-container
+        image: <YOUR_IMAGE_TAG>
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DATABASE_URL
+          value: sqlite:///./test.db
+        - name: REBYTE_API_KEY
+          value: <YOUR_REBYTE_API_KEY>
+        - name: OPENAI_API_KEY
+          value: <YOUR_OPENAI_API_KEY>
+        - name: ANTHROPIC_API_KEY
+          value: <YOUR_ANTHROPIC_API_KEY>
+        - name: ANYSCALE_ENDPOINT_API_KEY
+          value: <YOUR_ANYSCALE_API_KEY>
+        - name: SPEECH_TO_TEXT_USE
+          value: LOCAL_WHISPER
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: <YOUR_GOOGLE_CREDENTIALS_FILE_NAME>
+        - name: ELEVEN_LABS_API_KEY
+          value: <YOUR_ELEVEN_LABS_API_KEY>
+        - name: ELEVEN_LABS_USE_V2
+          value: true
+        - name: GCP_STORAGE_URL
+          value: <YOUR_GCP_STORAGE_URL>
+        - name: GCP_STORAGE_BUCKET_NAME
+          value: <YOUR_GCP_STORAGE_BUCKET_NAME>
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: realchar-service
+  annotations:
+spec:
+  type: LoadBalancer
+  selector:
+    app: realchar
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
