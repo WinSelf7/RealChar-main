@@ -37,13 +37,7 @@ Not sure how to pronounce RealChar? Listen to this 👉 [audip](https://github.c
 
 https://github.com/Shaunwei/RealChar/assets/5101573/6b35a80e-5503-4850-973d-254039bd383c
 
-### Demo 2 - with AI Elon about cage fight!
 
-https://github.com/Shaunwei/RealChar/assets/5101573/5de0b023-6cf3-4947-84cb-596f429d109e
-
-### Demo 3 - with AI Raiden about AI and "real" memory
-
-https://github.com/Shaunwei/RealChar/assets/5101573/62a1f3d1-1166-4254-9119-97647be52c42
 
 
 
